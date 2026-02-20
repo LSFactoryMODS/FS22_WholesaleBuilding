@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<modDesc descVersion="80">
+    <author>LSFactoryMODS</author>
+    <version>1.0.0.0</version>
+    <title>
+		<de>Großhandel</de>
+		<en>Wholesale</en>
+    </title>
+    <description>
+<de><![CDATA[An diesem Großhandel können alle Produkte aus dem Grundspiel verkauft werden.
+
+Egal, ob Sie Getreide, Milchprodukte, Fleisch, Gemüse oder handwerklich hergestellte Güter produzieren.
+Diese Erweiterung ermöglicht es Ihnen, all Ihre landwirtschaftlichen Produkte effizient 
+und gewinnbringend auf dem Markt zu verkaufen.
+
+Baukosten: 90000 €
+
+
+)]]>
+</de>
+<en><![CDATA[All products from the basic game can be sold at this wholesaler.
+
+Regardless of whether you produce grain, dairy products, meat, vegetables or artisan goods.
+This expansion allows you to sell all your agricultural products efficiently and profitably on the market. 
+and profitably on the market.
+
+
+Construction cost: 90000 $
+)]]></en>
+
+</description>
+
+    <iconFilename>icon_grosshandel.dds</iconFilename>
+    <multiplayer supported="true" />
+
+    <storeItems>
+        <storeItem xmlFilename="grosshandel.xml" />
+	  </storeItems>
+</modDesc>

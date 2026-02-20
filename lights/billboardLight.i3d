@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="billboardLight.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.6"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="$data/shaders/glowShader.xml"/>
+    <File fileId="8" filename="$data/shaders/placeableShader.xml"/>
+    <File fileId="3" filename="$data/shared/assets/lights/rudolfHormann/lightsSet_emissive.dds"/>
+    <File fileId="5" filename="$data/shared/clearGlass_diffuse.dds"/>
+    <File fileId="6" filename="$data/shared/default_normal.dds"/>
+    <File fileId="7" filename="$data/shared/window02_specular.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="Billboard_mat" materialId="10" diffuseColor="0 0 0 1" specularColor="0.494118 1 0">
+    </Material>
+    <Material name="Default OBJ" materialId="47" alphaBlending="true" customShaderId="8">
+      <Texture fileId="5"/>
+      <Normalmap fileId="6"/>
+      <Glossmap fileId="7"/>
+    </Material>
+    <Material name="Default OBJ.001" materialId="54" specularColor="0.494118 1 0" customShaderId="4">
+      <Texture fileId="3"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="billboardLight.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="lampBillboard" scale="2 2 2" nodeId="15" materialIds="10" castsShadows="true" receiveShadows="true">
+        <Shape shapeId="2" name="glas" translation="0.0133703 0.059422 0.00560439" rotation="59.8626 -0 0" scale="1.24347 0.804474 0.666667" nodeId="57" materialIds="54" castsShadows="true" receiveShadows="true">
+          <Shape shapeId="3" name="light" translation="-0.000584354 0.000929472 -0.35547" rotation="-0.448215 -0 0" scale="1.13596 1.04132 0.959705" nodeId="53" materialIds="47" castsShadows="true" receiveShadows="true"/>
+        </Shape>
+      </Shape>
+  </Scene>
+
+</i3D>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<placeable type="sellingStation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../shared/xml/schema/placeable.xsd">
+    <storeData>
+        <name>
+			<de>Großhandel</de>
+			<en>Wholesale</en>
+		</name>
+        <functions>
+            <function>
+				<de>Hier können alle Landwirtschaftlichen Produkte verkauft werden.</de>
+				<en>All agricultural products can be sold here.</en>
+			</function>
+        </functions>
+        <image>store_grosshandel.png</image>
+        <price>90000</price>
+        <lifetime>1000</lifetime>
+        <rotation>0</rotation>
+        <brand>NONE</brand>
+        <species>placeable</species>
+        <category>productionPoints</category>
+        <brush>
+            <type>placeable</type>
+            <category>production</category>
+            <tab>sellingPoints</tab>
+        </brush>
+        <vertexBufferMemoryUsage>552960</vertexBufferMemoryUsage>
+        <indexBufferMemoryUsage>61184</indexBufferMemoryUsage>
+        <textureMemoryUsage>6553600</textureMemoryUsage>
+        <audioMemoryUsage>0</audioMemoryUsage>
+        <instanceVertexBufferMemoryUsage>0</instanceVertexBufferMemoryUsage>
+        <instanceIndexBufferMemoryUsage>0</instanceIndexBufferMemoryUsage>
+    </storeData>
+
+    <base>
+        <filename>Grosshandel.i3d</filename>
+        <canBeRenamed>true</canBeRenamed>
+    </base>
+
+    <placement useRandomYRotation="false" useManualYRotation="true" >
+        <testAreas>
+            <testArea startNode="testArea1Start" endNode="testArea1End" />
+        </testAreas>	
+		<sounds>
+			<place template="smallImp" />
+		</sounds>
+    </placement>
+
+    <clearAreas>
+        <clearArea startNode="clearArea1Start" widthNode="clearArea1Width" heightNode="clearArea1Height"/>
+        <clearArea startNode="clearArea2Start" widthNode="clearArea2Width" heightNode="clearArea2Height"/>
+    </clearAreas>
+
+    <leveling requireLeveling="true" maxSmoothDistance="10" maxSlope="75" maxEdgeAngle="30" >
+        <levelAreas>
+            <levelArea startNode="levelArea1Start" widthNode="levelArea1Width" heightNode="levelArea1Height" groundType="asphalt"/>
+            <levelArea startNode="levelArea2Start" widthNode="levelArea2Width" heightNode="levelArea2Height" groundType="asphalt"/>
+        </levelAreas>
+    </leveling>
+
+    <indoorAreas>
+        <indoorArea startNode="indoorArea1Start" widthNode="indoorArea1Width" heightNode="indoorArea1Height" />
+		<indoorArea startNode="indoorArea2Start" widthNode="indoorArea2Width" heightNode="indoorArea2Height" />
+    </indoorAreas>
+
+    <tipOcclusionUpdateAreas>
+        <tipOcclusionUpdateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+    </tipOcclusionUpdateAreas>
+
+    <ai>
+        <updateAreas>
+            <updateArea startNode="tipOcclusionUpdateArea1Start" endNode="tipOcclusionUpdateArea1End" />
+        </updateAreas>
+		<splines>
+            <spline node="aiSpline1" />
+        </splines>
+    </ai>
+
+    <hotspots>
+        <hotspot type="PRODUCTION_POINT" linkNode="unloadTriggerMarker" teleportNode="unloadTriggerMarker" />
+    </hotspots>
+
+    <infoTrigger triggerNode="infoTrigger" />
+
+    <dynamicallyLoadedParts>
+        <dynamicallyLoadedPart filename="props/props.i3d" node="0" linkNode="propsLinkNode" />
+        <dynamicallyLoadedPart filename="$data/placeables/sellingStationGeneric/sellingStationGenericNoCover.i3d" node="0" linkNode="0>12" />
+    </dynamicallyLoadedParts>
+
+	<sellingStation node="sellingStation" supportsExtension="false">
+		<unloadTrigger fillTypes="WOOD" aiNode="unloadTriggerAINode">
+            <woodTrigger triggerNode="woodTrigger" activationTriggerNode="woodSellTrigger" />
+        </unloadTrigger>
+		<unloadTrigger fillTypes="WOOD" aiNode="unloadTriggerAINode">
+			<woodTrigger triggerNode="containerTrigger" class="PalletUnloadTrigger" />
+		</unloadTrigger>
+		<unloadTrigger exactFillRootNode="unloadTrigger"  aiNode="unloadTriggerAINode" fillTypeCategories="BULK LIQUID PIECE WINDROW COMBINE SPRAYER SPREADER MIXERWAGON FARMSILO HAYLOFT PRODUCT VEGETABLES">
+			<baleTrigger triggerNode="baleTrigger" deleteLitersPerSecond="5000" />
+			<palletTriggerNode triggerNode="palletTrigger" />
+			<fillTypeCategorie name="BULK"            	priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="LIQUID"         	priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="PIECE"         	priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="WINDROW"           priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="COMBINE"         	priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="SPRAYER"         	priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="SPREADER"          priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="MIXERWAGON"        priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="FARMSILO"         	priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="HAYLOFT"           priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="PRODUCT"         	priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+			<fillTypeCategorie name="VEGETABLES"        priceScale="1" supportsGreatDemand="true" disablePriceDrop="false" />
+		</unloadTrigger>
+	</sellingStation>
+
+	<triggerMarkers>
+        <triggerMarker node="unloadTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="UNLOAD" adjustToGround="false" />
+        <triggerMarker node="woodSellTriggerMarker" filename="$data/shared/assets/marker/markerIcons.xml" id="EXCLAMATION_MARK" adjustToGround="true" />
+    </triggerMarkers>
+
+    <lights>
+        <group weatherRequiredFlags="NIGHT" />
+
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight1" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight2" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight3" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight4" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight5" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight6" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight7" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight8" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight9" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight10" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight11" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight12" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight13" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight14" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight15" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight16" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight17" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight18" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight19" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight20" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight21" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight22" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight23" groupIndex="1"/>
+        <sharedLight filename="lights/billboardLight25w.xml" linkNode="linkedLight24" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight25" groupIndex="1"/>
+        <sharedLight filename="lights/wallLight25w.xml" linkNode="linkedLight26" groupIndex="1"/>        
+        <realLights>
+            <low>
+                <light node="realLightsLow" groupIndex="1"/>
+            </low>
+            <high>
+                <light node="realLightsHigh" groupIndex="1"/>
+            </high>
+        </realLights>
+    </lights>
+
+    <i3dMappings>
+
+        <i3dMapping id="propsLinkNode" node="0>11" />
+
+        <i3dMapping id="clearArea1Start" node="0>1|0|0" />
+        <i3dMapping id="clearArea1Width" node="0>1|0|0|0" />
+        <i3dMapping id="clearArea1Height" node="0>1|0|0|1" />
+        <i3dMapping id="clearArea2Start" node="0>1|1|0" />
+        <i3dMapping id="clearArea2Width" node="0>1|1|0|0" />
+        <i3dMapping id="clearArea2Height" node="0>1|1|0|1" />
+
+        <i3dMapping id="levelArea1Start" node="0>1|1|0" />
+        <i3dMapping id="levelArea1Width" node="0>1|1|0|0" />
+        <i3dMapping id="levelArea1Height" node="0>1|1|0|1" />
+        <i3dMapping id="levelArea2Start" node="0>1|1|1" />
+        <i3dMapping id="levelArea2Width" node="0>1|1|1|0" />
+        <i3dMapping id="levelArea2Height" node="0>1|1|1|1" />
+
+        <i3dMapping id="indoorArea1Start" node="0>1|2|0" />
+        <i3dMapping id="indoorArea1Width" node="0>1|2|0|0" />
+        <i3dMapping id="indoorArea1Height" node="0>1|2|0|1" />
+        <i3dMapping id="indoorArea2Start" node="0>1|2|1" />
+        <i3dMapping id="indoorArea2Width" node="0>1|2|1|0" />
+        <i3dMapping id="indoorArea2Height" node="0>1|2|1|1" />
+
+        <i3dMapping id="testArea1Start" node="0>1|3|0" />
+        <i3dMapping id="testArea1End" node="0>1|3|0|0" />
+
+        <i3dMapping id="tipOcclusionUpdateArea1Start" node="0>1|4|0" />
+        <i3dMapping id="tipOcclusionUpdateArea1End" node="0>1|4|0|0" />
+
+        <i3dMapping id="infoTrigger" node="0>10" />
+
+        <i3dMapping id="realLightsLow" node="0>3|0|1" />
+        <i3dMapping id="realLightsHigh" node="0>3|0|0" />
+        <i3dMapping id="linkedLight1" node="0>3|1" />
+        <i3dMapping id="linkedLight2" node="0>3|2" />
+        <i3dMapping id="linkedLight3" node="0>3|3" />
+        <i3dMapping id="linkedLight4" node="0>3|4" />
+        <i3dMapping id="linkedLight5" node="0>3|5" />
+        <i3dMapping id="linkedLight6" node="0>3|6" />
+        <i3dMapping id="linkedLight7" node="0>3|7" />
+        <i3dMapping id="linkedLight8" node="0>3|8" />
+        <i3dMapping id="linkedLight9" node="0>3|9" />
+        <i3dMapping id="linkedLight10" node="0>3|10" />
+        <i3dMapping id="linkedLight11" node="0>3|11" />
+        <i3dMapping id="linkedLight12" node="0>3|12" />
+        <i3dMapping id="linkedLight13" node="0>3|13" />
+        <i3dMapping id="linkedLight14" node="0>3|14" />
+        <i3dMapping id="linkedLight15" node="0>3|15" />
+        <i3dMapping id="linkedLight16" node="0>3|16" />
+        <i3dMapping id="linkedLight17" node="0>3|17" />
+        <i3dMapping id="linkedLight18" node="0>3|18" />
+        <i3dMapping id="linkedLight19" node="0>3|19" />
+        <i3dMapping id="linkedLight20" node="0>3|20" />
+        <i3dMapping id="linkedLight21" node="0>3|21" />
+        <i3dMapping id="linkedLight22" node="0>3|22" />
+        <i3dMapping id="linkedLight23" node="0>3|23" />
+        <i3dMapping id="linkedLight24" node="0>3|24" />
+        <i3dMapping id="linkedLight25" node="0>3|25" />
+        <i3dMapping id="linkedLight26" node="0>3|26" />
+
+
+        <i3dMapping id="sellingStation" node="0>4" />
+        <i3dMapping id="unloadTrigger" node="0>4|0" />
+        <i3dMapping id="baleTrigger" node="0>4|1" />  
+        <i3dMapping id="unloadTriggerAINode" node="0>4|2" />
+        <i3dMapping id="unloadTriggerMarker" node="0>4|3" />
+		<i3dMapping id="woodTrigger" node="0>4|4" />
+        <i3dMapping id="woodSellTrigger" node="0>4|5" /> 
+        <i3dMapping id="woodSellTriggerMarker" node="0>4|5|0" />               
+		<i3dMapping id="palletTrigger" node="0>4|6" />
+		<i3dMapping id="containerTrigger" node="0>4|8" />
+        <i3dMapping id="playerTrigger" node="0>5|0" />
+        <i3dMapping id="playerTriggerMarker" node="0>5|0|0" />
+        <i3dMapping id="palletSpawner" node="0>6" />
+        <i3dMapping id="spawnSpace1start" node="0>6|0" />
+        <i3dMapping id="spawnSpace2start" node="0>6|1" />
+        <i3dMapping id="warningStripes" node="0>7" />		
+		<i3dMapping id="aiSpline1" node="0>8" />		
+    </i3dMappings>
+</placeable>

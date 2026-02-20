@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<i3D name="wallLight.i3d" version="1.6" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://i3d.giants.ch/schema/i3d-1.6.xsd">
+  <Asset>
+    <Export program="GIANTS Editor 64bit" version="9.0.6"/>
+  </Asset>
+
+  <Files>
+    <File fileId="4" filename="$data/shaders/glowShader.xml"/>
+    <File fileId="5" filename="$data/shared/clearGlass_diffuse.dds"/>
+    <File fileId="6" filename="$data/shared/default_normal.dds"/>
+    <File fileId="7" filename="$data/shared/default_specular.dds"/>
+    <File fileId="1" filename="damLightSET_diffuse.dds"/>
+    <File fileId="2" filename="damLightSET_normal.dds"/>
+    <File fileId="3" filename="damLightSET_specular.dds"/>
+  </Files>
+
+
+  <Materials>
+    <Material name="damLightMetal" materialId="5">
+      <Texture fileId="1"/>
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+    </Material>
+    <Material name="damLightSET_mat" materialId="6" alphaBlending="true" customShaderId="4" customShaderVariation="additive_colorScale">
+      <Texture fileId="5"/>
+      <Normalmap fileId="6"/>
+      <Glossmap fileId="7"/>
+      <CustomParameter name="lightControl" value="0.8 0 0 0"/>
+    </Material>
+    <Material name="dayandnight_mat" materialId="7" customShaderId="4">
+      <Texture fileId="1"/>
+      <Normalmap fileId="2"/>
+      <Glossmap fileId="3"/>
+    </Material>
+  </Materials>
+
+
+  <Shapes externalShapesFile="wallLight.i3d.shapes">
+  </Shapes>
+
+
+  <Dynamics>
+  </Dynamics>
+
+  <Scene>
+      <Shape shapeId="1" name="wallLight-Orange-250" static="true" clipDistance="200" nodeId="12" materialIds="5" castsShadows="true" receiveShadows="true">
+        <Shape shapeId="2" name="lamp" translation="-0.000475497 0 0" rotation="90 -0 0" nodeId="13" materialIds="7" receiveShadows="true">
+          <Shape shapeId="3" name="glass" translation="0.0691647 -0.00113221 0.0435445" rotation="-90 -0 0" clipDistance="50" nodeId="14" materialIds="6" castsShadows="true" receiveShadows="true"/>
+        </Shape>
+      </Shape>
+  </Scene>
+
+</i3D>
